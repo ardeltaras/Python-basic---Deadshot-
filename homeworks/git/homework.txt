@@ -1,1 +1,31 @@
-test
+1. Create a folder called cursor_git_hw
+2. cd into the cursor_git_hw folder.
+3. Create a file called first.txt.
+4. Add first.txt to the staging area.
+5. Commit with the message "adding first.txt".
+6. Check out your commit with git log.
+7. Create another file called second.txt.
+8. Add second.txt to the staging area.
+9. Commit with the message "adding second.txt"
+10. Remove the first.txt file
+11. Add this change to the staging area
+12. Commit with the message "removing first.txt"
+13. Check out your commits using git log
+14. Push your changes to remote
+15. Create new branch from master called `first` (without checkouting)
+16. Create one more branch from master called `second` (with checkouting to it)
+17. Change the second.txt file with "Hello" string.
+18. Stash you changes and checkout to first branch.
+19. Checkout back and Stash Pop the changes.
+20. Add your changes to the staging area
+21. Commit with the message "Changing second.txt".
+22. Push your changes to remote
+23. Checkout to first branch.
+24. Change the second.txt file with "Cursor" string.
+25. Add your changes to the staging area
+26. Commit with the message "Changing second.txt".
+27. Push your changes to remote
+28. Checkout to master branch
+29*. Merge the changes from second branch
+30*. Then merge the changes from first branch
+31*. Resolve conflict and push the changes to remote
