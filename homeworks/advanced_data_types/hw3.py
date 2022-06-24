@@ -69,8 +69,7 @@ for num in range(10):
         lst.append(num ** 4)
 print(lst)
 
-lst_comp = [num ** 2 if num % 2 == 1 else num ** 4 for num in range(10)]
-print(lst_comp, "\n")
+print([num ** 2 if num % 2 == 1 else num ** 4 for num in range(10)], "\n")
 
 print("# 13. Convert (2) to regular for with if-else")
 # (2)
@@ -93,8 +92,7 @@ for num in range(1, 11):
         d[num] = num ** 2
 print(d)
 
-d_comp = {num: num ** 2 for num in range(1, 11) if num ** 2 % 2 == 1}
-print(d_comp, "\n")
+print({num: num ** 2 for num in range(1, 11) if num % 2 == 1}, "\n")
 
 print("# 15*. Convert (4) to dict comprehension.")
 # (4)
@@ -106,8 +104,7 @@ for num in range(1, 11):
         d[num] = num // 0.5
 print(d)
 
-d_comp = {num: num ** 2 if num ** 2 % 2 == 1 else num // 0.5 for num in range(1, 11)}
-print(d_comp, "\n")
+print({num: num ** 2 if num ** 2 % 2 == 1 else num // 0.5 for num in range(1, 11)}, "\n")
 
 print("# 16. Convert (5) to regular for with if.")
 # (5)
@@ -159,42 +156,35 @@ def foo(x, y, z):
         return y
 print(foo(3,6,9), "\n")
 
-##############End#################
+##############Last#################
 
-# lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
+lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
 
 print("# 20. Sort lst_to_sort from min to max")
-lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
 print(sorted(lst_to_sort), "\n")
 
 print("# 21. Sort lst_to_sort from max to min")
-lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
 print(sorted(lst_to_sort, reverse=True), "\n")
 
 print("# 22. Use map and lambda to update the lst_to_sort by multiply each element by 2")
-lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
-new_lst_to_sort = list(map(lambda x: x * 2, lst_to_sort))
-print(new_lst_to_sort, "\n")
+print(list(map(lambda x: x * 2, lst_to_sort)), "\n")
 
 print("# 23*. Raise each list number to the corresponding number on another list:")
 list_A = [2, 3, 4]
 list_B = [5, 6, 7]
-list_C = list(map(lambda x: x + 3, list_A))
-print(list_C, "\n")
+print(list(map(lambda x, y: x ** y, list_A, list_B)), "\n")
 
 print("# 24. Use filter and lambda to filter the number of a lst_to_sort with elem % 2 == 1.")
 lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
-new_lst_to_sort = list(filter(lambda x: (x % 2 == 1), lst_to_sort))
-print(new_lst_to_sort, "\n")
+print(list(filter(lambda x: (x % 2 == 1), lst_to_sort)), "\n")
 
 print("# 25. Considering the range of values: b = range(-10, 10), use the function filter to return only negative numbers.")
 b = range(-10, 10)
-new_b = list(filter(lambda x: (x < 0 == 0), b))
-print(new_b, "\n")
+print(list(filter(lambda x: (x < 0), b)), "\n")
 
 print("# 26*. Using the filter function, find the values that are common to the two lists:")
 list_1 = [1, 2, 3, 5, 7, 9]
 list_2 = [2, 3, 5, 6, 7, 8]
-new_common_list = list(filter(lambda x: x in list_1, list_2))
-print(new_common_list)
+print(list(filter(lambda x: x in list_1, list_2)), "\n")
 
+##############Finish#################
