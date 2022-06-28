@@ -22,9 +22,10 @@ class Bus(Vehicle):
         super().__init__(name, max_speed, total_capacity)
         self.used_capacity = used_capacity
 
-    def fare_bus(self):
-        extra_fare = self.total_capacity * 100 // 10
-        return  self.total_capacity * 100 + extra_fare
+    def fare(self):
+        extra_fare = super().fare() // 10
+        return super().fare() + extra_fare
+        # return  self.total_capacity * 100 + extra_fare
 
     def check_capacity(self):
         if self.used_capacity > self.total_capacity:
@@ -32,9 +33,8 @@ class Bus(Vehicle):
         elif self.used_capacity < self.total_capacity:
             return "Good"
 
-    def __str__(self):
-        lst_bus = ['bus1', 'bus2', 'bus3']
-        print(len(lst_bus))
+    def __len__(self):
+        return len(self.name)
 
 bus_test = Bus(name='Test', max_speed=120, total_capacity=90, used_capacity=95)
 
@@ -70,7 +70,7 @@ print("# 5. Override fare method for Bus class.\n"
       "# Here we need to add an extra 10% to the fare.\n"
       "# Formula: total_fare + 10% of total_fare.\n"
       "# Example, fare = 50 => total_fare = 5500")
-print("Result fare + 10% = " + str(bus_test.fare_bus()), "\n")
+print("Result fare + 10% = " + str(bus_test.fare()), "\n")
 
 
 print("# 6. Add used_capacity attribute for Bus.\n"
@@ -83,7 +83,7 @@ print("# 7. Write a magic method to Bus that would be triggered when len() funct
       "# To figure out what magic method you should implement, take a look at the full list of magic methods:\n"
       "# https://www.tutorialsteacher.com/python/magic-methods-in-python.\n"
       "# Play around with other dunder methods")
-bus_test.__str__()
+print(f"Length of name = {len(bus_test)}")
 print("")
 
 
