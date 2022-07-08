@@ -12,8 +12,14 @@ class Vehicle:
         return self.total_capacity * 100
 
 car_test = Vehicle(name='Test', max_speed=120, total_capacity=60)
-
 print("Result fare = " + str(car_test.fare()), "\n")
+
+class Engine:
+    def __init__(self, volume):
+        self.volume = volume
+
+    def get_volume(self):
+        return self.volume
 
 
 print("# 2. Create classes Bus and Car that inherit Vehicle.")
@@ -21,24 +27,20 @@ class Bus(Vehicle):
     def __init__(self, name, max_speed, total_capacity, used_capacity):
         super().__init__(name, max_speed, total_capacity)
         self.used_capacity = used_capacity
+        if self.used_capacity > self.total_capacity:
+            raise Exception(f"Capacity exceeded! Maximum capacity in this Bus = {total_capacity}")
 
     def fare(self):
         extra_fare = super().fare() // 10
         return super().fare() + extra_fare
         # return  self.total_capacity * 100 + extra_fare
 
-    def check_capacity(self):
-        if self.used_capacity > self.total_capacity:
-            return "Error"
-        elif self.used_capacity < self.total_capacity:
-            return "Good"
-
     def __len__(self):
-        return len(self.name)
+        return self.max_speed//2
 
-bus_test = Bus(name='Test', max_speed=120, total_capacity=90, used_capacity=95)
+bus_test = Bus(name='Test', max_speed=120, total_capacity=90, used_capacity=89)
 
-class Car(Vehicle):
+class Car(Vehicle, Engine):
     def __init__(self, name, max_speed, total_capacity):
         super().__init__(name, max_speed, total_capacity)
 
@@ -49,10 +51,8 @@ print("# 3. Create 3 car objects and 2 bus objects")
 car_1 = Car(name='Subaru', max_speed=190, total_capacity=6)
 car_2 = Car(name='Audi', max_speed=220, total_capacity=5)
 car_3 = Car(name='Toyota', max_speed=180, total_capacity=7)
-
 bus_1 = Bus(name='Man', max_speed=120, total_capacity=90, used_capacity=70)
 bus_2 = Bus(name='Ford', max_speed=130, total_capacity=80, used_capacity=60)
-
 print("Done\n")
 
 
@@ -76,27 +76,20 @@ print("Result fare + 10% = " + str(bus_test.fare()), "\n")
 print("# 6. Add used_capacity attribute for Bus.\n"
       "# It means how many people are on the bus.\n"
       "# If used_capacity > total_capacity raise an error.")
-print("Result check_capacity = " + str(bus_test.check_capacity()), "\n")
+print(f"Input capacity passed the check! \n"
+      f"Actual capacity in bus {bus_test.name} = {str(bus_test.used_capacity)}" "\n")
 
 
 print("# 7. Write a magic method to Bus that would be triggered when len() function is called.\n"
       "# To figure out what magic method you should implement, take a look at the full list of magic methods:\n"
       "# https://www.tutorialsteacher.com/python/magic-methods-in-python.\n"
       "# Play around with other dunder methods")
-print(f"Length of name = {len(bus_test)}")
+print(f"Len = {len(bus_test)}")
 print("")
 
 
 print("# 8. Create class Engine with attribute volume and method get_volume() that will return volume.")
-class Engine(Car):
-    def __init__(self, volume, name, max_speed, total_capacity):
-        super().__init__(name, max_speed, total_capacity)
-        self.volume = volume
-
-    def get_volume(self):
-        return self.volume
-
-car_test2 = Engine(volume=10, name='Test2', max_speed=120, total_capacity=6)
+car_test2 = Engine(volume=10)
 print("Result get_volume = " + str(car_test2.get_volume()), "\n")
 
 
