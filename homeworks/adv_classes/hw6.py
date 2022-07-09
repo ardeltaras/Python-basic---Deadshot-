@@ -100,27 +100,25 @@ print(f"Ingredients of bolognaise {bolognaise.ingredients}")
         #         print(concert.visitors_count)  # 50
         #     """
 class Concert:
-
     max_visitor_num = 50
 
-    def __init__(self):
-        pass
+    def __int__(self, visitors_count):
+        self._visitors_count = visitors_count
 
-    def visitors_count(self, visitors_count):
-        self.visitors_count = visitors_count
-        if self.visitors_count > self.max_visitor_num:
-            self.visitors_count = self.max_visitor_num
-            print(f"You exceeded the maximum count of visitors! >>.\n"
-                  f">> Maximum count of visitors = {self.max_visitor_num}")
+    @property
+    def visitors_count(self):
+        return self._visitors_count
+
+    @visitors_count.setter
+    def visitors_count(self, value):
+        if value > Concert.max_visitor_num:
+            self._visitors_count = Concert.max_visitor_num
         else:
-            print(f"Count of visitors is correct! >>.\n"
-                  f">> Your count of visitors = {self.visitors_count}")
+            self._visitors_count = value
 
 concert_1 = Concert()
-concert_1.visitors_count(30)
-
-concert_2 = Concert()
-concert_2.visitors_count(70)
+concert_1.visitors_count = 700
+print(f"concert_1.visitors_count = {concert_1.visitors_count}")
 
 
         # 6.
@@ -269,13 +267,13 @@ print(f"Variables email: {student_email}")
         #
         # print({obj}.temperature)
 class Celsius:
-    def __init__(self, temperature=29):
+    def __init__(self, temperature):
         self._temperature = temperature
 
     @property
     def fahrenheit(self):
         return (self._temperature * 1.8) + 32
 
-room = Celsius()
+room = Celsius(29)
 print(f"In Celsius: {room._temperature}")
 print(f"In Fahrenheit: {room.fahrenheit}")
