@@ -111,8 +111,8 @@ class Concert:
 
     @visitors_count.setter
     def visitors_count(self, value):
-        if value > Concert.max_visitor_num:
-            self._visitors_count = Concert.max_visitor_num
+        if value > self.max_visitor_num:
+            self._visitors_count = self.max_visitor_num
         else:
             self._visitors_count = value
 
@@ -198,7 +198,7 @@ class AddressBook:
                f"birthday='{self.birthday}', " \
                f"age='{self.age}')"
 
-AddressBook = AddressBook(1,
+address_book = AddressBook(1,
                           "Sergiy",
                           "98412765481",
                           "Kyiv",
@@ -206,7 +206,7 @@ AddressBook = AddressBook(1,
                           "2.02.2000",
                           17)
 
-print(AddressBook)
+print(address_book)
 
 
         # 9.
