@@ -16,17 +16,15 @@ class custom_file_manage():
     def __init__(self, file_name, mode):
         self.file_name = file_name
         self.file = open(file_name, mode)
-        self.datetime_open = datetime.datetime.now()
         with open('logs.txt', 'a') as f:
-            f.write(f"{self.datetime_open} {self.file_name} OPEN\n")
+            f.write(f"{datetime.datetime.now()} {self.file_name} OPEN\n")
 
     def __enter__(self):
         return self.file
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.datetime_close = datetime.datetime.now()
         with open('logs.txt', 'a') as f:
-            f.write(f"{self.datetime_close} {self.file_name} CLOSE\n")
+            f.write(f"{datetime.datetime.now()} {self.file_name} CLOSE\n")
         self.file.close()
 
 # Для перевірки datetime open та close для запису та читання файлу
